@@ -26,7 +26,11 @@ const App = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="xl" className={classes.root}>
+      <Container
+        maxWidth="xl"
+        className={classes.root}
+        style={{ display: "flex" }}
+      >
         <Typography variant="h1" align="center" gutterBottom>
           Circles
         </Typography>
