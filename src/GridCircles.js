@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import useStyle from "./circleStyle";
+import useStyle from "./CircleStyle";
 
 const GridCircles = ({ numOfCircles }) => {
   const [circles, setCircles] = useState([]);
@@ -42,6 +42,7 @@ const GridCircles = ({ numOfCircles }) => {
     return rgbValues;
   };
 
+  //return a list with the circles color value
   const genCircles = (numOfCircles, rgbValues) => {
     let circles = [];
     for (let r = 0; r < rgbValues[0].length; r++) {

@@ -29,7 +29,7 @@ const App = () => {
       <Container
         maxWidth="xl"
         className={classes.root}
-        style={{ display: "flex" }}
+        style={{ display: "flex" }} //added to support gh-pages
       >
         <Typography variant="h1" align="center" gutterBottom>
           Circles
