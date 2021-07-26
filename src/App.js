@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import useStyle from "./AppStyle";
+import {
+  CssBaseline,
+  Container,
+  Typography,
+  TextField,
+} from "@material-ui/core";
+import GridCircles from "./GridCircles";
 
-function App() {
+const App = () => {
+  const [numCircles, setNumCircles] = useState(8);
+
+  const handleChange = (event) => {
+    const newNum = parseInt(event.target.value);
+    if (newNum >= 1 && newNum % 1 === 0) {
+      setNumCircles(newNum);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const classes = useStyle();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline />
+      <Container maxWidth="xl" className={classes.root}>
+        <Typography variant="h1" align="center" gutterBottom>
+          Circles
+        </Typography>
+        <form onSubmit={handleSubmit} className={classes.form}>
+          <TextField
+            id="numOfCircles"
+            label="numbner of circles"
+            variant="outlined"
+            value={numCircles}
+            onChange={handleChange}
+            type="number"
+          ></TextField>
+        </form>
+        <GridCircles numOfCircles={numCircles} />
+      </Container>
+    </>
   );
-}
+};
 
 export default App;
